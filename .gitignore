@@ -1,0 +1,68 @@
+# macOS system files
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Files that might appear in the root of a volume
+.DocumentRevisions-V100
+.fseventsd
+.Spotlight-V100
+.TemporaryItems
+.Trashes
+.VolumeIcon.icns
+.com.apple.timemachine.donotpresent
+
+# Directories potentially created on remote AFP share
+.AppleDB
+.AppleDesktop
+Network Trash Folder
+Temporary Items
+.apdisk
+
+# NetBeans specific files
+/nbproject/private/
+/nbproject/Makefile-*.mk
+/nbbuild/
+/dist/
+/nbdist/
+/.build-impl.xml
+/*.properties~
+
+# Build artifacts
+/build/
+/classes/
+/nbproject/Private/
+/dist/
+/nbdist/
+/generated-sources/
+/generated-test-sources/
+/test/build/
+/test/results/
+
+# Maven specific
+/target/
+
+# Gradle specific
+/.gradle/
+/build/
+
+# Log files
+*.log
+
+# User-specific configuration files
+*.sublime-workspace
+*.vscode/
+
+# Package Files
+*.jar
+*.war
+*.ear
+
+# Temporary files
+*.swp
+*~
+
+# Temporary NetBeans files
+/private/
+*.orig
+*.rej
