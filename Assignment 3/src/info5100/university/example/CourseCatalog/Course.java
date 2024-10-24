@@ -9,40 +9,42 @@ package info5100.university.example.CourseCatalog;
  *
  * @author kal bugrara
  */
+
 public class Course {
+    
+    private String number;  // Course number (e.g., "CS101")
+    private String name;    // Course name (e.g., "Data Structures")
+    private int credits;    // Number of credits
+    private int pricePerCredit = 1500; // Price per credit hour
 
-    String number;
-    String name;
-    int credits;
-    int price = 1500; //per credit hour
-
-    public Course(String n, String numb, int ch) {
-        name = n;
-        number = numb;
-        credits = ch;
-
+    // Constructor
+    public Course(String name, String number, int credits) {
+        this.name = name;
+        this.number = number;
+        this.credits = credits;
     }
 
-    public String getCOurseNumber() {
+    // Getters for course attributes
+    public String getCourseNumber() {
         return number;
     }
 
-    public int getCoursePrice() {
-        return price * credits;
-
+    public String getCourseName() {
+        return name;
     }
 
     public int getCredits() {
         return credits;
-    
-}
-
-    String getCourseNumber() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
-    String getName() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    // Calculate total price for the course based on credits
+    public int getCoursePrice() {
+        return pricePerCredit * credits;
     }
-    
+
+    // Override toString() method to provide a readable course description
+    @Override
+    public String toString() {
+        return "Course: " + name + " (" + number + "), Credits: " + credits + ", Price: $" + getCoursePrice();
+    }
 }
