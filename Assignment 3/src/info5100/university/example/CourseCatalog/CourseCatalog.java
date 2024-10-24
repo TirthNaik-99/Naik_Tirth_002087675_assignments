@@ -39,5 +39,13 @@ public class CourseCatalog {
         }
         return null;
     }
+    
+     public void browseCourses() {
+        for (Course course : courselist) {
+            System.out.println("Course Number: " + course.getCourseNumber() + 
+                               ", Name: " + course.getName() + 
+                               ", Credits: " + course.getCredits());
+        }
+    }
 
 }
