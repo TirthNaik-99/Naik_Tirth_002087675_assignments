@@ -7,13 +7,13 @@ package info5100.university.example.CourseSchedule;
 
 import info5100.university.example.CourseCatalog.Course;
 import info5100.university.example.CourseCatalog.CourseCatalog;
+import info5100.university.example.Persona.Faculty.FacultyProfile;
 import java.util.ArrayList;
 
 /**
  *
  * @author kal bugrara
  */
-
 public class CourseSchedule {
 
     private CourseCatalog courseCatalog;
@@ -36,7 +36,7 @@ public class CourseSchedule {
 
     public CourseOffer getCourseOfferByNumber(String courseNumber) {
         for (CourseOffer courseOffer : schedule) {
-            if (courseOffer.getCourseNumber().equals(courseNumber)) {
+            if (courseOffer.getCourse().getCourseNumber().equals(courseNumber)) {
                 return courseOffer;
             }
         }
@@ -61,7 +61,7 @@ public class CourseSchedule {
     public void displaySchedule() {
         System.out.println("Course Schedule for Semester: " + semester);
         for (CourseOffer offer : schedule) {
-            System.out.println("Course: " + offer.getCourse().getTitle() +
+            System.out.println("Course: " + offer.getCourse().getCourseName() +
                                ", Professor: " + (offer.getProfessor() != null ? offer.getProfessor().getName() : "Not Assigned"));
         }
     }

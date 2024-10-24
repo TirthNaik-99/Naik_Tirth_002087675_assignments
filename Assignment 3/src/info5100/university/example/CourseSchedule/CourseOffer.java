@@ -1,3 +1,4 @@
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -6,35 +7,31 @@
 package info5100.university.example.CourseSchedule;
 
 import info5100.university.example.CourseCatalog.Course;
-import info5100.university.example.Persona.Faculty.FacultyAssignment;
 import info5100.university.example.Persona.Faculty.FacultyProfile;
 import java.util.ArrayList;
 
-/**
- *
- * @author kal bugrara
- */
 public class CourseOffer {
 
     private Course course;
     private ArrayList<Seat> seatlist;
-    private FacultyAssignment facultyassignment;
+    private FacultyProfile professor;
 
-    public CourseOffer(Course c) {
-        course = c;
-        seatlist = new ArrayList<>();
+    public CourseOffer(Course course) {
+        this.course = course;
+        this.seatlist = new ArrayList<>();
+        this.professor = null; // Initially no professor assigned
     }
 
-    public void assignAsTeacher(FacultyProfile fp) {
-        facultyassignment = new FacultyAssignment(fp, this);
+    public Course getCourse() {
+        return course;
     }
 
-    public FacultyProfile getFacultyProfile() {
-        return facultyassignment.getFacultyProfile();
+    public FacultyProfile getProfessor() {
+        return professor;
     }
 
-    public String getCourseNumber() {
-        return course.getCOurseNumber();
+    public void setProfessor(FacultyProfile professor) {
+        this.professor = professor;
     }
 
     public void generateSeats(int n) {
@@ -57,8 +54,8 @@ public class CourseOffer {
         if (seat == null) {
             return null;
         }
-        SeatAssignment sa = seat.newSeatAssignment(cl); // Seat is already linked to course offer
-        cl.registerStudent(sa); // Course offer seat is now linked to student
+        SeatAssignment sa = seat.newSeatAssignment(cl);
+        cl.registerStudent(sa);
         return sa;
     }
 
@@ -72,11 +69,17 @@ public class CourseOffer {
         return sum;
     }
 
-    public Course getSubjectCourse() {
-        return course;
-    }
-
     public int getCreditHours() {
         return course.getCredits();
     }
+    
+    public Course getSubjectCourse() {
+        return course;
+    }
+    
+    public String getCourseNumber() {
+        return course.getCourseNumber();
+    }
+    
+
 }

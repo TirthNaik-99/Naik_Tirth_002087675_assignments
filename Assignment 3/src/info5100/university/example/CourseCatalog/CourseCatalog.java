@@ -1,4 +1,3 @@
-
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -17,18 +16,16 @@ import java.time.format.DateTimeFormatter;
 
 public class CourseCatalog {
 
-    private Department department;   // The department offering the courses
-    private String lastUpdated;      // Tracks the last time the catalog was updated
-    private ArrayList<Course> courseList; // List of courses in the catalog
+    private Department department;
+    private String lastUpdated;
+    private ArrayList<Course> courseList;
 
-    // Constructor
     public CourseCatalog(Department department) {
         this.department = department;
         this.courseList = new ArrayList<>();
         updateLastUpdated();
     }
 
-    // Getters and setters
     public ArrayList<Course> getCourseList() {
         return courseList;
     }
@@ -37,7 +34,6 @@ public class CourseCatalog {
         return lastUpdated;
     }
 
-    // Method to add a new course to the catalog
     public Course newCourse(String name, String number, int credits) {
         Course course = new Course(name, number, credits);
         courseList.add(course);
@@ -45,17 +41,15 @@ public class CourseCatalog {
         return course;
     }
 
-    // Method to find a course by its number
     public Course getCourseByNumber(String number) {
         for (Course course : courseList) {
             if (course.getCourseNumber().equals(number)) {
                 return course;
             }
         }
-        return null;  // Return null if course not found
+        return null;
     }
 
-    // Method to remove a course by its number
     public boolean removeCourseByNumber(String number) {
         Course course = getCourseByNumber(number);
         if (course != null) {
@@ -63,21 +57,21 @@ public class CourseCatalog {
             updateLastUpdated();
             return true;
         }
-        return false;  // Course not found
+        return false;
     }
 
-    // Method to browse all available courses in the catalog
     public void browseCourses() {
         if (courseList.isEmpty()) {
             System.out.println("No courses available in the catalog.");
         } else {
             for (Course course : courseList) {
-                System.out.println(course);
+                System.out.println("Course Number: " + course.getCourseNumber() +
+                                   ", Name: " + course.getCourseName() +
+                                   ", Credits: " + course.getCredits());
             }
         }
     }
 
-    // Private method to update the timestamp whenever the catalog is modified
     private void updateLastUpdated() {
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
         lastUpdated = LocalDateTime.now().format(formatter);

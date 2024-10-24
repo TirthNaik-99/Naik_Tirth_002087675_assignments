@@ -18,6 +18,16 @@ public class FacultyProfile {
     Person person;
     ArrayList <FacultyAssignment> facultyassignments; 
     
+    private String name;
+
+    public FacultyProfile(String name) {
+        this.name = name;
+    }
+
+    public String getName() {
+        return name;
+    } 
+    
     public FacultyProfile(Person p) {
 
         person = p;
