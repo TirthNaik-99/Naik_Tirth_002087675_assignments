@@ -10,10 +10,14 @@ import info5100.university.example.CourseCatalog.Course;
 import info5100.university.example.Persona.Faculty.FacultyProfile;
 import java.util.ArrayList;
 
+/**
+ *
+ * @author kal bugrara
+ */
 public class CourseOffer {
 
     private Course course;
-    private ArrayList<Seat> seatlist;
+    private ArrayList<CourseSeat> seatlist;
     private FacultyProfile professor;
 
     public CourseOffer(Course course) {
@@ -36,12 +40,12 @@ public class CourseOffer {
 
     public void generateSeats(int n) {
         for (int i = 0; i < n; i++) {
-            seatlist.add(new Seat(this, i));
+            seatlist.add(new CourseSeat(this, i));
         }
     }
 
-    public Seat getEmptySeat() {
-        for (Seat s : seatlist) {
+    public CourseSeat getEmptySeat() {
+        for (CourseSeat s : seatlist) {
             if (!s.isOccupied()) {
                 return s;
             }
@@ -50,7 +54,7 @@ public class CourseOffer {
     }
 
     public SeatAssignment assignEmptySeat(CourseLoad cl) {
-        Seat seat = getEmptySeat();
+        CourseSeat seat = getEmptySeat();
         if (seat == null) {
             return null;
         }
@@ -61,7 +65,7 @@ public class CourseOffer {
 
     public int getTotalCourseRevenues() {
         int sum = 0;
-        for (Seat s : seatlist) {
+        for (CourseSeat s : seatlist) {
             if (s.isOccupied()) {
                 sum += course.getCoursePrice();
             }

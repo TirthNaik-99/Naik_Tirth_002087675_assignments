@@ -9,13 +9,13 @@ package info5100.university.example.CourseSchedule;
  *
  * @author kal bugrara
  */
-public class Seat {
+public class CourseSeat {
     
     Boolean occupied; 
     int number;
     SeatAssignment seatassignment; //links back to studentprofile
     CourseOffer courseoffer;
-    public Seat (CourseOffer co, int n){
+    public CourseSeat (CourseOffer co, int n){
         courseoffer = co;
         number = n;
         occupied = false;
