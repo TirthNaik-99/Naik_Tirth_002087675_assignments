@@ -38,8 +38,8 @@ public class FacultyDirectory {
         FacultyProfile BestProfSofar = null;
         for(FacultyProfile fp: teacherlist)
            if(fp.getProfAverageOverallRating()>bestratingsofar){
-           bestratingsofar = fp.getProfAverageOverallRating();
-           BestProfSofar = fp;
+                bestratingsofar = fp.getProfAverageOverallRating();
+                BestProfSofar = fp;
            }
         return BestProfSofar;
         

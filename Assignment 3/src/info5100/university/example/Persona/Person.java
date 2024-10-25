@@ -11,18 +11,24 @@ package info5100.university.example.Persona;
  */
 public class Person {
     
-    String id;
-    public Person (String id){
-        
-        this.id = id;
+    private String personId;
+    private String name;
+    public Person (String personId, String name){
+        this.name = name;
+        this.personId = personId;
     }
-    public String getPersonId(){
-        return id;
+    public String getpersonId(){
+        return personId;
     }
 
-        public boolean isMatch(String id){
-        if(getPersonId().equals(id)) return true;
+    public boolean isMatch(String id){
+        if(getpersonId().equals(id)) 
+            return true;
         return false;
+    }
+        
+    public String getName() {
+        return name;
     }
     
 }

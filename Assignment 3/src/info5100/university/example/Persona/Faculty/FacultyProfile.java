@@ -15,8 +15,8 @@ import java.util.ArrayList;
  */
 public class FacultyProfile {
 
-    Person person;
-    ArrayList <FacultyAssignment> facultyassignments; 
+    private Person person;
+    private ArrayList<FacultyAssignment> facultyAssignments;
     
     private String name;
 
@@ -25,34 +25,33 @@ public class FacultyProfile {
     }
 
     public String getName() {
-        return name;
+        return person.getName(); // Assuming Person has a getName() method
     } 
     
-    public FacultyProfile(Person p) {
-
-        person = p;
-        facultyassignments = new ArrayList();
+    public FacultyProfile(Person person) {
+        this.person = person;
+        this.facultyAssignments = new ArrayList<>();
     }
     public  double getProfAverageOverallRating(){
         
         double sum = 0.0;
         //for each facultyassignment extract class rating
         //add them up and divide by the number of teaching assignmnet;
-        for(FacultyAssignment fa: facultyassignments){
+        for(FacultyAssignment fa: facultyAssignments){
             
             sum = sum + fa.getRating();
             
         }
         //divide by the total number of faculty assignments
         
-        return sum/(facultyassignments.size()*1.0); //this ensure we have double/double
+        return sum/(facultyAssignments.size()*1.0); //this ensure we have double/double
         
     }
 
     public FacultyAssignment AssignAsTeacher(CourseOffer co){
         
         FacultyAssignment fa = new FacultyAssignment(this, co);
-        facultyassignments.add(fa);
+        facultyAssignments.add(fa);
         
         return fa;
     }
@@ -62,7 +61,7 @@ public class FacultyProfile {
     }
 
     public boolean isMatch(String id) {
-        if (person.getPersonId().equals(id)) {
+        if (person.getpersonId().equals(id)) {
             return true;
         }
         return false;

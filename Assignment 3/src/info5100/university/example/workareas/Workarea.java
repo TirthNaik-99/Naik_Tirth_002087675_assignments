@@ -14,21 +14,29 @@ import java.util.ArrayList;
  */
 public class Workarea {
     
-    Person person; //owner
-    ArrayList<WorkRequest> inQueue;
-    ArrayList<WorkRequest> outQueue;
+    private Person person; // Owner
+    private ArrayList<WorkRequest> inQueue;
+    private ArrayList<WorkRequest> outQueue;
     
-    public Workarea(Person p){
-        
-        person = p;
-        inQueue = new ArrayList();
-        outQueue = new ArrayList();
-        
-        
+    public Workarea(Person p) {
+        this.person = p;
+        this.inQueue = new ArrayList<>();
+        this.outQueue = new ArrayList<>();
     }
     
-    public void addInQuestRequest(WorkRequest wr){
-        inQueue.add(wr);
+    public void addInRequest(WorkRequest workRequest) {
+        inQueue.add(workRequest);
     }
 
+    public void addOutRequest(WorkRequest workRequest) {
+        outQueue.add(workRequest);
+    }
+
+    public ArrayList<WorkRequest> getInQueue() {
+        return inQueue;
+    }
+
+    public ArrayList<WorkRequest> getOutQueue() {
+        return outQueue;
+    }
 }

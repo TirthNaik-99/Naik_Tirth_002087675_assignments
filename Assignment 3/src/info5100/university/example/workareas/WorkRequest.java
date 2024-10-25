@@ -16,10 +16,35 @@ public class WorkRequest {
     Person performer;
     Person originator;
     
-    WorkRequest(Person org, Person per, String t){
-        performer = per;
-        originator = org;
-        task = t;
+       public WorkRequest(Person originator, Person performer, String task) {
+        this.originator = originator;
+        this.performer = performer;
+        this.task = task;
     }
-    
+
+    public String getTask() {
+        return task;
+    }
+
+    public void setTask(String task) {
+        this.task = task;
+    }
+
+    public Person getPerformer() {
+        return performer;
+    }
+
+    public void setPerformer(Person performer) {
+        this.performer = performer;
+    }
+
+    public Person getOriginator() {
+        return originator;
+    }
+
+    public void setOriginator(Person originator) {
+        this.originator = originator;
+    }
 }
+    
+

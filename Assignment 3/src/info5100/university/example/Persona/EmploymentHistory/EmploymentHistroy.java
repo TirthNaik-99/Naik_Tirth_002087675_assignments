@@ -14,7 +14,7 @@ import java.util.ArrayList;
 public class EmploymentHistroy {
     ArrayList<Employment> employments;
     public EmploymentHistroy(){
-        employments = new ArrayList();
+        this.employments = new ArrayList();
     }
     
     public Employment newEmployment(String job){
@@ -23,4 +23,7 @@ public class EmploymentHistroy {
         return ne;
     }
     
+    public ArrayList<Employment> getEmployments() {
+        return employments;
+    }
 }

@@ -35,8 +35,9 @@ public class Info5001UniversityExample {
         CourseSchedule courseschedule = department.newCourseSchedule("Fall2020");
 
         CourseOffer courseoffer = courseschedule.newCourseOffer("info 5100");
-        if (courseoffer==null)return;
-        courseoffer.generateSeats(10);
+        if (courseoffer==null)
+            return;
+        courseoffer.generateSeats(30);
         PersonDirectory pd = department.getPersonDirectory();
         Person person = pd.newPerson("0112303");
         StudentDirectory sd = department.getStudentDirectory();

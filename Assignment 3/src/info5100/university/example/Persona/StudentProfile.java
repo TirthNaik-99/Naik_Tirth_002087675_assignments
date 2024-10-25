@@ -27,7 +27,7 @@ public class StudentProfile {
     }
 
     public boolean isMatch(String id) {
-        return person.getPersonId().equals(id);
+        return person.getpersonId().equals(id);
     }
 
     public Transcript getTranscript() {

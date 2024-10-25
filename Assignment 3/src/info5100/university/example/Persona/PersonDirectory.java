@@ -21,18 +21,18 @@ public class PersonDirectory {
 
     }
 
-    public Person newPerson(String id) {
+    public Person newPerson(String personId) {
 
-        Person p = new Person(id);
+        Person p = new Person(personId, personId);
         personlist.add(p);
         return p;
     }
 
-    public Person findPerson(String id) {
+    public Person findPerson(String personId) {
 
         for (Person p : personlist) {
 
-            if (p.isMatch(id)) {
+            if (p.isMatch(personId)) {
                 return p;
             }
         }
