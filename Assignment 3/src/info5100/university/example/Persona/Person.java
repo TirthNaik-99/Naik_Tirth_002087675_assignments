@@ -10,9 +10,10 @@ package info5100.university.example.Persona;
  * @author kal bugrara
  */
 public class Person {
-    
-    private String personId;
+
     private String name;
+
+    private String personId;
     public Person (String personId, String name){
         this.name = name;
         this.personId = personId;
@@ -28,6 +29,7 @@ public class Person {
     }
         
     public String getName() {
+
         return name;
     }
     

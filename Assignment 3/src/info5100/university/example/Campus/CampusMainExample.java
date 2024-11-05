@@ -81,9 +81,13 @@ public class CampusMainExample {
         // Add students and register for courses
         studentDirectory.newStudentProfile(new Person("S001", "Alice"));
         studentDirectory.newStudentProfile(new Person("S002", "Bob"));
+
+
         courseSchedule.displayStudent();
 
         // Print out the schedule and assignments
         courseSchedule.displaySchedule();
+
+        courseSchedule.printSemesterReport();
     }
 }

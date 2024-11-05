@@ -8,13 +8,27 @@ package info5100.university.example.CourseSchedule;
 
 import info5100.university.example.CourseCatalog.Course;
 import info5100.university.example.Persona.Faculty.FacultyProfile;
+import info5100.university.example.Persona.StudentProfile;
+
+import java.util.HashMap;
+import java.util.List;
 import java.util.ArrayList;
+import java.util.Map;
+
 
 /**
  *
  * @author kal bugrara
  */
 public class CourseOffer {
+
+    private List<StudentProfile> registeredStudents = new ArrayList<>();
+    private Map<StudentProfile, String> studentGrades = new HashMap<>(); // Map to store grades for each student
+
+    public List<StudentProfile> getRegisteredStudents() {
+        return registeredStudents;
+    }
+
 
     private Course course;
     private ArrayList<CourseSeat> seatlist;
@@ -84,6 +98,8 @@ public class CourseOffer {
     public String getCourseNumber() {
         return course.getCourseNumber();
     }
-    
 
+    public String getGradeForStudent(StudentProfile student) {
+        return studentGrades.getOrDefault(student, "N/A"); // Return grade or "N/A" if not found
+    }
 }
