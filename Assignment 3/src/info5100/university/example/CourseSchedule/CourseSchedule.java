@@ -23,6 +23,11 @@ public class CourseSchedule {
     private ArrayList<CourseOffer> schedule;
     private String semester;
 
+    public ArrayList<CourseOffer> getSchedule() {
+        return schedule;
+    }
+
+
     public CourseSchedule(String semester, CourseCatalog courseCatalog) {
         this.semester = semester;
         this.courseCatalog = courseCatalog;
@@ -91,6 +96,7 @@ public class CourseSchedule {
     }
 
     public void printSemesterReport() {
+        System.out.println("---------------------------------------------------");
         System.out.println("Semester Report for " + semester);
         System.out.println("---------------------------------------------------");
 
@@ -126,29 +132,29 @@ public class CourseSchedule {
         }
     }
 
-    public void testPrintSemesterReport() {
-        // Set up a semester name
-        this.semester = "Fall 2024";
+//    public void testPrintSemesterReport() {
+//        // Set up a semester name
+//        this.semester = "Fall 2024";
+//
+//        // Create a Course and CourseOffer
+//        Course course = new Course("Intro to Programming","CS101", 3);
+//        CourseOffer courseOffer = new CourseOffer(course);
+//
+//        // Create a professor and assign to CourseOffer
+//        FacultyProfile professor = new FacultyProfile("Prof. John Doe");
+//        courseOffer.setProfessor(professor);
+//
+//        // Create a student and register them in the course
+//        StudentProfile student = new StudentProfile(new Person("1","gg"));
+//        student.enrollInCourse(course, "A"); // Register with grade "A"
+//        courseOffer.getRegisteredStudents().add(student);
+//
+//        // Add CourseOffer to schedule
+//        this.schedule = new ArrayList<>();
+//        this.schedule.add(courseOffer);
+//
+//        // Now call printSemesterReport
 
-        // Create a Course and CourseOffer
-        Course course = new Course("Intro to Programming","CS101", 3);
-        CourseOffer courseOffer = new CourseOffer(course);
-
-        // Create a professor and assign to CourseOffer
-        FacultyProfile professor = new FacultyProfile("Prof. John Doe");
-        courseOffer.setProfessor(professor);
-
-        // Create a student and register them in the course
-        StudentProfile student = new StudentProfile(new Person("1","gg"));
-        student.enrollInCourse(course, "A"); // Register with grade "A"
-        courseOffer.getRegisteredStudents().add(student);
-
-        // Add CourseOffer to schedule
-        this.schedule = new ArrayList<>();
-        this.schedule.add(courseOffer);
-
-        // Now call printSemesterReport
-        printSemesterReport();
-    }
+//    }
 
 }

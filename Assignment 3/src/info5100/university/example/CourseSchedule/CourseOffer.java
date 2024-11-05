@@ -99,7 +99,29 @@ public class CourseOffer {
         return course.getCourseNumber();
     }
 
-    public String getGradeForStudent(StudentProfile student) {
-        return studentGrades.getOrDefault(student, "N/A"); // Return grade or "N/A" if not found
+    public String getGradeForStudent(StudentProfile studentProfile) {
+        return studentGrades.get(studentProfile);
+    }
+
+    public boolean registerStudent(StudentProfile student) {
+        CourseSeat seat = getEmptySeat();
+        if (seat == null) {
+            System.out.println("No empty seats available in " + course.getCourseName());
+            return false;  // Registration failed due to no available seats
+        }
+
+        // Assign seat
+        CourseLoad courseLoad = new CourseLoad("courseLoad"); // Create a course load for the student
+        SeatAssignment seatAssignment = assignEmptySeat(courseLoad);
+
+        if (seatAssignment != null) {
+            registeredStudents.add(student);
+            studentGrades.put(student, "A"); // Initial placeholder for grade
+            student.addCourse(this); // Add course to student's course list
+            System.out.println("Student " + student.getStudentId() + " registered for " + course.getCourseName());
+            return true;
+        }
+
+        return false;
     }
 }

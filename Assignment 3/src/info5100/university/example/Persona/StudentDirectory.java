@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package info5100.university.example.Persona;
 
 import info5100.university.example.Department.Department;
@@ -15,31 +10,35 @@ import java.util.ArrayList;
 public class StudentDirectory {
 
     Department department;
-    ArrayList<StudentProfile> studentlist;
+    ArrayList<StudentProfile> studentList;
 
-    public StudentDirectory(Department d) {
+    public StudentDirectory(Department department) {
+        this.department = department;
+        this.studentList = new ArrayList<>();
+    }
 
-        department = d;
-        studentlist = new ArrayList();
+    // Method to add a student profile to the directory
+    public void addStudent(StudentProfile student) {
+        studentList.add(student);
+    }
 
+    // Method to retrieve the list of students
+    public ArrayList<StudentProfile> getStudentList() {
+        return studentList;
     }
 
     public StudentProfile newStudentProfile(Person p) {
-
         StudentProfile sp = new StudentProfile(p);
-        studentlist.add(sp);
+        studentList.add(sp);
         return sp;
     }
 
     public StudentProfile findStudent(String id) {
-
-        for (StudentProfile sp : studentlist) {
-
+        for (StudentProfile sp : studentList) {
             if (sp.isMatch(id)) {
                 return sp;
             }
         }
-            return null; //not found after going through the whole list
-         }
-    
+        return null; // not found after going through the whole list
+    }
 }
