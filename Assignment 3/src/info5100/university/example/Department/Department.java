@@ -47,7 +47,7 @@ public class Department {
         degree.addCoreCourse(c);
         
     }
-public void addElectiveCourse(Course c){
+    public void addElectiveCourse(Course c){
         degree.addElectiveCourse(c);
         
     }

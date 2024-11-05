@@ -53,7 +53,8 @@ public class Degree {
       
         //Check for the total number of credit hours that it is above 32
 
-        else return true; //student has at least 32 credit hours per NEU requirements
+        else 
+            return true; //student has at least 32 credit hours per NEU requirements
 
     }
 

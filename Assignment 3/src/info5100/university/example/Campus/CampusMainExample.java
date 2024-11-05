@@ -5,11 +5,14 @@
  */
 package info5100.university.example.Campus;
 
+
+import java.util.Scanner;
 import info5100.university.example.CourseCatalog.CourseCatalog;
 import info5100.university.example.CourseSchedule.CourseSchedule;
 import info5100.university.example.Department.Department;
 import info5100.university.example.Persona.Faculty.FacultyDirectory;
 import info5100.university.example.Persona.Person;
+import info5100.university.example.Persona.PersonDirectory;
 import info5100.university.example.Persona.StudentDirectory;
 
 /**
@@ -19,6 +22,8 @@ import info5100.university.example.Persona.StudentDirectory;
 public class CampusMainExample {
 
     public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
         // Create a department
         Department department = new Department("Computer Science");
 
@@ -26,8 +31,31 @@ public class CampusMainExample {
         CourseCatalog courseCatalog = new CourseCatalog(department);
 
         // Add courses to the catalog
-        courseCatalog.newCourse("CS101", "Introduction to Programming", 3);
-        courseCatalog.newCourse("CS102", "Data Structures", 4);
+//        System.out.print("How many courses do you want to add? ");
+//        int numberOfCourses=scanner.nextInt();
+//
+//        scanner.nextLine();
+//
+//        for (int i = 0; i < numberOfCourses; i++) {
+//            System.out.print("Enter course name: ");
+//            String courseName = scanner.nextLine();
+//            System.out.print("Enter course code: ");
+//            String courseCode = scanner.nextLine();
+//            System.out.print("Enter course credits: ");
+//            int courseCredits = scanner.nextInt();
+//            scanner.nextLine(); // Consume newline
+//
+//            courseCatalog.newCourse(courseName, courseCode, courseCredits);
+//        }
+        courseCatalog.newCourse("Introduction to Programming","CS101",  3);
+        courseCatalog.newCourse("Data Structures","CS102",  4);
+        courseCatalog.newCourse("Web Design","CS103",  4);
+        courseCatalog.browseCourses();
+
+        /*
+         * Manage the course schedule:
+         * Create course schedule for a new semester, add course offers for courses, and assign teachers.
+         */
 
         // Create course schedule for a semester
         CourseSchedule courseSchedule = new CourseSchedule("Fall2024", courseCatalog);
@@ -53,6 +81,7 @@ public class CampusMainExample {
         // Add students and register for courses
         studentDirectory.newStudentProfile(new Person("S001", "Alice"));
         studentDirectory.newStudentProfile(new Person("S002", "Bob"));
+        courseSchedule.displayStudent();
 
         // Print out the schedule and assignments
         courseSchedule.displaySchedule();

@@ -66,3 +66,4 @@ Temporary Items
 /private/
 *.orig
 *.rej
+/Assignment 3/dist/

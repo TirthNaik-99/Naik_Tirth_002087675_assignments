@@ -8,6 +8,8 @@ package info5100.university.example.CourseSchedule;
 import info5100.university.example.CourseCatalog.Course;
 import info5100.university.example.CourseCatalog.CourseCatalog;
 import info5100.university.example.Persona.Faculty.FacultyProfile;
+import info5100.university.example.Persona.StudentProfile;
+
 import java.util.ArrayList;
 
 /**
@@ -63,6 +65,27 @@ public class CourseSchedule {
         for (CourseOffer offer : schedule) {
             System.out.println("Course: " + offer.getCourse().getCourseName() +
                                ", Professor: " + (offer.getProfessor() != null ? offer.getProfessor().getName() : "Not Assigned"));
+        }
+    }
+    public void displayStudent() {
+        System.out.println("Course Schedule for Semester: " + semester);
+
+        for (CourseOffer courseOffer : schedule) {
+            System.out.println("Course: " + courseOffer.getCourse().getCourseName() +
+                    " (Code: " + courseOffer.getCourse().getCourseNumber() + ")");
+
+            System.out.println("Instructor: " + courseOffer.getProfessor().getName());
+
+            System.out.println("Registered Students:");
+            if (courseOffer.getRegisteredStudents().isEmpty()) {
+                System.out.println("   No students registered yet.");
+            } else {
+                for (StudentProfile student : courseOffer.getRegisteredStudents()) {
+                    System.out.println("   - " + student.getPerson().getName());
+                }
+            }
+
+            System.out.println("---------------------------------------------------");
         }
     }
 }
