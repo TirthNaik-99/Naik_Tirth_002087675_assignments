@@ -113,12 +113,13 @@ public class CourseSchedule {
                 System.out.println("Student: " + student.getPerson().getName());
 
                 // Print the grade for the student in this course
-                System.out.println("   Grade: " + courseOffer.getGradeForStudent(student));
+                String grade = student.getGradeForCourse(courseOffer.getCourse());
+                System.out.println("   Grade: " + grade);
 
                 // Print all courses and grades for the student
                 System.out.println("   Courses and Grades:");
-                student.getCoursesAndGrades().forEach((course, grade) ->
-                        System.out.println("      " + course.getCourseName() + " - Grade: " + grade)
+                student.getCoursesAndGrades().forEach((course, courseGrade) ->
+                        System.out.println("      " + course.getCourseName() + " - Grade: " + courseGrade)
                 );
 
                 // Print GPA for the semester
@@ -131,6 +132,7 @@ public class CourseSchedule {
             }
         }
     }
+
 
 //    public void testPrintSemesterReport() {
 //        // Set up a semester name

@@ -35,7 +35,7 @@ public class StudentProfile {
     }
 
     // Constructor with tuition fees
-    public StudentProfile(Person person, int studentId,double tuitionFees) {
+    public StudentProfile(Person person, int studentId, double tuitionFees) {
         this.person = person;
         this.tuitionFees = tuitionFees;
         this.studentId = studentId;
@@ -97,6 +97,10 @@ public class StudentProfile {
         return coursesAndGrades;
     }
 
+    public String getGradeForCourse(Course course) {
+        return coursesAndGrades.getOrDefault(course, "Not Graded"); // Returns the grade or "Not Graded" if not found
+    }
+
     public void updateGrade(Course course, String newGrade) {
         if (coursesAndGrades.containsKey(course)) {
             coursesAndGrades.put(course, newGrade);
@@ -129,4 +133,20 @@ public class StudentProfile {
         return tuitionFees;
     }
 
+    // Enroll in a course with a default grade of "A"
+    public void enrollInCourse(Course course) {
+        coursesAndGrades.put(course, "A"); // Default grade set to "A"
+    }
+
+    // Update grade for a specific course
+    public void updateCourseGrade(Course course, String newGrade) {
+        if (coursesAndGrades.containsKey(course)) {
+            coursesAndGrades.put(course, newGrade);
+        } else {
+            System.out.println("Course not found in student record.");
+        }
+    }
 }
+
+
+

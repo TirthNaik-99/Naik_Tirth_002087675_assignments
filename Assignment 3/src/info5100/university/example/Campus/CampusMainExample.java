@@ -17,15 +17,16 @@ public class CampusMainExample {
     public static void main(String[] args) {
         // Create a department
         Department department = new Department("Computer Science");
+        //System.out.println(department);
 
         // Create course catalog and add courses
         CourseCatalog courseCatalog = new CourseCatalog(department);
-        courseCatalog.newCourse("Introduction to Programming", "CS101", 3); // Core course
-        courseCatalog.newCourse("Data Structures", "CS102", 4);             // Elective
-        courseCatalog.newCourse("Web Design", "CS103", 4);                  // Elective
-        courseCatalog.newCourse("Databases", "CS104", 3);                   // Elective
-        courseCatalog.newCourse("Operating Systems", "CS105", 4);           // Elective
-        courseCatalog.newCourse("Artificial Intelligence", "CS106", 3);     // Elective
+        courseCatalog.newCourse("Introduction to Programming", "CS101", 3);
+        courseCatalog.newCourse("Data Structures", "CS102", 4);
+        courseCatalog.newCourse("Web Design", "CS103", 4);
+        courseCatalog.newCourse("Databases", "CS104", 3);
+        courseCatalog.newCourse("Operating Systems", "CS105", 4);
+        courseCatalog.newCourse("Artificial Intelligence", "CS106", 3);
         courseCatalog.browseCourses();
 
         // Create course schedule for the semester
@@ -70,19 +71,30 @@ public class CampusMainExample {
             studentDirectory.addStudent(student);
         }
 
-        // Register students across courses to ensure at least 20 total registrations
+        // Grades array to assign different grades to each course registration
+        String[] grades = {"A", "A-", "B+", "B", "B-", "C+", "C", "C-", "D", "F"};
+
+        // Register students across courses with different grades
+        // Register students across courses with different grades
         int studentIndex = 0;
+        int gradeIndex = 0; // Track grade independently to vary for each course
         for (CourseOffer courseOffer : courseSchedule.getSchedule()) {
             for (int j = 0; j < 2; j++) { // Register 2 students per course offer
                 StudentProfile student = students.get(studentIndex % students.size());
                 if (courseOffer.getEmptySeat() != null) {
                     courseOffer.registerStudent(student);
-                    student.enrollInCourse(courseOffer.getCourse(),"B+");
 
+                    // Assign a different grade to each registration using the grades array
+                    String grade = grades[gradeIndex % grades.length];
+                    student.enrollInCourse(courseOffer.getCourse(), grade);
+
+                    // Update gradeIndex for next registration to vary grades
+                    gradeIndex++;
                 }
                 studentIndex++;
             }
         }
+
 
         // Display course schedule and assignments
         courseSchedule.displaySchedule();
